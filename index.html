@@ -1,0 +1,134 @@
+<!DOCTYPE html> <html lang="zh-Hant">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>戒毒的心志 原創版 吉他試唱</title>
+<style> body { margin: 0; min-height: 100vh; display: flex; justify-content: center; align-items: flex-start; background: #111827; font-family: Arial, "Microsoft JhengHei", sans-serif; color: white; }
+.player {
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  padding: 40px 25px;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: normal;
+}
+
+audio {
+  width: 100%;
+}
+
+.artist {
+  margin-top: 20px;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+/* 歌詞區塊 */
+.lyrics {
+  margin-top: 35px;
+  padding: 25px 20px;
+  background: #1f2937;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.lyrics-title {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: normal;
+  color: #93c5fd;
+}
+
+.lyrics-content {
+  font-size: 16px;
+  line-height: 2;
+  white-space: pre-wrap;
+  color: #e5e7eb;
+  overflow-wrap: break-word;
+}
+</style> </head>
+<body>
+<div class="player">
+<h1 id="songTitle">戒毒的心志 原創版</h1>
+
+<audio controls id="musicPlayer">
+  您的瀏覽器不支援音樂播放。
+</audio>
+
+<div class="artist" id="songSubtitle">
+  吉他試唱(唱得不好請見諒..
+</div>
+
+<!-- 歌詞區塊 -->
+<div class="lyrics">
+
+  <div class="lyrics-title">歌詞</div>
+
+  <div class="lyrics-content" id="songLyrics"></div>
+
+</div>
+</div>
+<script>
+// ==============================
+// 歌曲設定：更換歌曲時修改這裡即可
+// ==============================
+
+// GitHub 儲存庫中的 MP3 檔案名稱
+const musicFile = "戒毒的心志(原創 吉他試唱.MP3";
+
+// 網頁顯示的歌曲標題
+const songTitle = "戒毒的心志 原創版";
+
+// 歌曲副標題
+const songSubtitle = "吉他試唱(唱得不好請見諒..";
+
+// 歌詞：直接在這裡貼上完整歌詞
+const lyrics = `誤入歧途吸上毒 沉迷毒海的深淵
+嚐盡了種種的苦楚 在外流浪無所歸
+
+辜負爹娘養育恩 感謝天父不撇棄
+感動了孩兒要立志 戒毒路上要堅強
+
+痛悔流淚莫負主 啊～遇到試探莫犯罪
+風吹雨淋莫言苦啊 再苦再難要堅強
+
+啊～人生需要依靠主 引領我們走完十架道路
+得勝罪惡戒毒成功 再風風光光回家鄉`;
+// ==============================
+// 音樂網址設定
+// ==============================
+
+const musicUrl = "./" + encodeURIComponent(musicFile);
+
+// ==============================
+// 顯示歌曲資訊
+// ==============================
+
+document.getElementById("songTitle").textContent = songTitle;
+
+document.getElementById("songSubtitle").textContent = songSubtitle;
+
+document.getElementById("songLyrics").textContent = lyrics;
+
+// ==============================
+// 設定音樂播放器
+// ==============================
+
+const musicPlayer = document.getElementById("musicPlayer");
+
+musicPlayer.src = musicUrl;
+
+musicPlayer.load();
+
+musicPlayer.addEventListener("loadedmetadata", function() {
+  console.log("音樂載入成功，長度：", musicPlayer.duration);
+});
+
+musicPlayer.addEventListener("error", function() {
+  console.log("音樂載入失敗：", musicPlayer.error);
+});
+
+</script>
+</body> </html>
